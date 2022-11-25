@@ -1,31 +1,36 @@
 package com.cj.myapp;
 
-import static org.junit.Assert.fail;
+import javax.inject.Inject;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.cj.myapp.mapper.TimeMapper;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/**/root-context.xml")
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class MybatisTest {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired
-	private TimeMapper timeMapper;
+	private static final Logger logger = LoggerFactory.getLogger(MybatisTest.class);
 	
-	@Test
-	public void mybatisTest() {
-		//logger.info(timeMapper.getClass().getName());
-		//logger.info(timeMapper.getTime1());
-		System.out.println(timeMapper.getClass().getName());
-		System.out.println(timeMapper.getTime1());
-		//fail("Not yet implemented");
-	}
-
+	@Inject
+    private SqlSessionFactory sqlFactory;
+    
+    @Test
+    public void testFactory(){
+        logger.info("sqlFactory : "+sqlFactory);
+    }
+    
+    @Test
+    public void testSession() throws Exception{
+        
+        try(SqlSession session = sqlFactory.openSession()){           
+            logger.info("MyBatis Connection success! session  : "+session);           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberDTO getMember(String id) throws Exception {
+	public MemberDTO getMember(String id) throws Exception {	
 		return memberDao.getMember(id);
 	}
 	

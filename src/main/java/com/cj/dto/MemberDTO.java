@@ -50,5 +50,11 @@ public class MemberDTO {
 	public void setPt(int pt) {
 		this.pt = pt;
 	}
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr + ", tel=" + tel
+				+ ", regdate=" + regdate+ ", pt=" + pt + "]";
+	}
+	
 	
 }

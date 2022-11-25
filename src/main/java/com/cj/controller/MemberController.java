@@ -19,15 +19,16 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	//member/list.do -> MemberService -> MemberDAO -> MyBatis(memberMapper) -> DB
-	//localhost:8091/member/list.do
-	@RequestMapping(value="list.do", method=RequestMethod.GET)
-	public String memberList(Model model) throws Exception{
+	//member/list.do -> MemberService -> MemberDAO -> MyBatis(memberMapper) -> DB 
+	//localhost:8093/member/list.do
+	@RequestMapping(value="list.do", method = RequestMethod.GET)
+	public String memberList(Model model) throws Exception {
 		List<MemberDTO> memberList = memberService.memberList();
 		model.addAttribute("memberList", memberList);
 		return "member/memberList";
 	}
 	
-	//localhost:8091/member/getMember.do
+	
+	//localhost:8093/member/getMember.do
 	//@RequestMapping("getMember.do")
 }
