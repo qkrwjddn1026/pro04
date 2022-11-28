@@ -16,7 +16,7 @@ public class DTOTest {
 		dto.setName("박정우");
 		dto.setTel("01012341234");
 		dto.setPt(0);
-		dto.setAddr("경기도");
+		dto.setAddr1("경기도");
 		dto.setRegdate("2022-12-12");
 		
 		Logger.info(dto.toString());
