@@ -48,7 +48,7 @@
 			</script>
 			</c:if>
 			<c:if test="${empty sid }">
-            <form action="${path1 }/member/loginCheck.do" method="post" name="loginForm">
+            <form action="${path2}/member/loginCheck.do" method="post" name="loginForm">
               <div class="grid-x">
                 <div class="small-12 cell">
                   <label>Login ID
@@ -75,7 +75,7 @@
 			<c:if test="${not empty sid }">
              <div class="grid-x" style="height:218px">
                 <div class="small-12 cell">
-                  <label><strong>${sid }</strong>님 안녕하세요~!</label>
+                  <label><strong>${sid }</strong>님 안녕하세요</label>
                 </div>
                 <div class="small-12 cell">
                   <label>&nbsp;&nbsp;</label>
